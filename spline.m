@@ -1,4 +1,4 @@
-function [max_ek]=interpolate(k)
+function [max_ek]=max_ek2(k)
     x=-1:0.0001:1;
     f=1./(1+25*x.*x);
     
@@ -15,7 +15,7 @@ function [max_ek]=interpolate(k)
     plot(x,f);
     xlabel('x');
     ylabel('y'); 
-    title('EquaÃ§Ã£o original'); 
+    title('Equação original'); 
     grid on; 
 
     subplot(4,1,2); 
@@ -29,14 +29,14 @@ function [max_ek]=interpolate(k)
     plot(x, polyval(pk,x)); 
     xlabel('x'); 
     ylabel('y'); 
-    title('PolinÃ´mio pk'); 
+    title('Polinômio pk encontrado'); 
     grid on;
 
     subplot(4,1,4); 
     plot(x, ek); 
     xlabel('x'); 
     ylabel('y'); 
-    title('Erros do polinÃ´mio'); 
+    title('Erros do polinômio'); 
     grid on;
 end
 

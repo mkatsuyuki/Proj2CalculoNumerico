@@ -1,14 +1,14 @@
 function [max_ek]=max_ek2(k)
-    x=-1:0.0001:1;
-    f=1./(1+25*x.*x);
+    x=-1:0.0001:1;			%Cria-se o domínio do tempo "contínuo"
+    f=1./(1+25*x.*x);		%Define o plinômio original
     
-    xi=linspace(-1,1,k+1);
-    yi=1./(1+25*xi.*xi);
+    xi=linspace(-1,1,k+1);	%Cria-se o vetor com k+1 pontos igualmente espaçados no intervalo entre -1 e 1 (xi = -1 + 2i/k, com i pertencente a {0,...,k}) 
+    yi=1./(1+25*xi.*xi);	%Define os valores de y a partir dos pontos de xi definidos acima
     
-    pk = polyfit(xi,yi,k);
+    pk = polyfit(xi,yi,k);	%A partir de interpolação polinomial, cria-se um polinômio de ordem k a partir dos pontos xi e yi definidos
 
-    ek = abs(f-polyval(pk,x));
-    max_ek = max(abs(f-polyval(pk,x)));
+    ek = abs(f-polyval(pk,x));	%Cria-se um gráfico que consiste no erro do polinômio pk em relação ao polinômio original
+    max_ek = max(abs(f-polyval(pk,x)));	%Retorna o valor máximo da função ek definida acima
     
     figure(1); 
     subplot(4,1,1); 
