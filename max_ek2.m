@@ -1,4 +1,4 @@
-function [max_ek]=interpolate(k)
+function [max_ek]=max_ek2(k)
     x=-1:0.0001:1;
     f=1./(1+25*x.*x);
     
