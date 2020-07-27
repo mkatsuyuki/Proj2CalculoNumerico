@@ -1,14 +1,15 @@
-function [max_ek]=max_ek2(k)
+function [max_ek]=spline(k)
     x=-1:0.0001:1;
     f=1./(1+25*x.*x);
     
     xi=linspace(-1,1,k+1);
     yi=1./(1+25*xi.*xi);
     
-    pk = polyfit(xi,yi,k);
-
-    ek = abs(f-polyval(pk,x));
-    max_ek = max(abs(f-polyval(pk,x)));
+    pk = csapi(xi,yi,x)
+    %pk = spline(xi,yi,x)
+    %pk = csape(xi, yi,'variational', x)
+    ek = abs(f-pk);
+    max_ek = max(ek = abs(f-pk));
     
     figure(1); 
     subplot(4,1,1); 
@@ -26,7 +27,7 @@ function [max_ek]=max_ek2(k)
     grid on; 
 
     subplot(4,1,3); 
-    plot(x, polyval(pk,x)); 
+    plot(x,pk,'k-',xi,yi,'ro')
     xlabel('x'); 
     ylabel('y'); 
     title('Polinômio pk encontrado'); 
@@ -39,7 +40,6 @@ function [max_ek]=max_ek2(k)
     title('Erros do polinômio'); 
     grid on;
 end
-
 
 
 
