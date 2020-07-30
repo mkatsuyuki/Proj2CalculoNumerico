@@ -1,4 +1,4 @@
-function [max_ek]=max_ek2(k)
+function [max_ek]=max_ek(k)
     x=-1:0.0001:1;			%Cria-se o domínio do tempo "contínuo"
     f=1./(1+25*x.*x);		%Define o plinômio original
     
@@ -10,6 +10,7 @@ function [max_ek]=max_ek2(k)
     ek = abs(f-polyval(pk,x));	%Cria-se um gráfico que consiste no erro do polinômio pk em relação ao polinômio original
     max_ek = max(abs(f-polyval(pk,x)));	%Retorna o valor máximo da função ek definida acima
     
+    %{
     figure(1); 
     subplot(4,1,1); 
     plot(x,f);
@@ -17,7 +18,7 @@ function [max_ek]=max_ek2(k)
     ylabel('y'); 
     title('Equação original'); 
     grid on; 
-
+    
     subplot(4,1,2); 
     plot(xi,yi);
     xlabel('x');
@@ -25,6 +26,7 @@ function [max_ek]=max_ek2(k)
     title('Pontos selecionados'); 
     grid on; 
 
+    
     subplot(4,1,3); 
     plot(x, polyval(pk,x)); 
     xlabel('x'); 
@@ -38,6 +40,7 @@ function [max_ek]=max_ek2(k)
     ylabel('y'); 
     title('Erros do polinômio'); 
     grid on;
+    %}
 end
 
 
