@@ -25,7 +25,6 @@ function [max_ek]=max_ek(k)
     ylabel('y'); 
     title('Pontos selecionados'); 
     grid on; 
-
     
     subplot(4,1,3); 
     plot(x, polyval(pk,x)); 
@@ -33,7 +32,6 @@ function [max_ek]=max_ek(k)
     ylabel('y'); 
     title('Polinômio pk encontrado'); 
     grid on;
-
     subplot(4,1,4); 
     plot(x, ek); 
     xlabel('x'); 
@@ -42,9 +40,5 @@ function [max_ek]=max_ek(k)
     grid on;
     %}
 end
-
-
-
-
 
 

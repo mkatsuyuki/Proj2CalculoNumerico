@@ -5,9 +5,9 @@ function [max_ek]=spline(k)
     xi=linspace(-1,1,k+1);
     yi=1./(1+25*xi.*xi);
     
-    pk = csape(xi, yi,'variational')
-    pk_function = fnval(pk,x);
-    ek = abs(f-pk_function);
+    s = csape(xi, yi,'variational')
+    s_function = fnval(s,x);
+    ek = abs(f-s_function);
     max_ek = max(ek);
     
     %{
@@ -27,10 +27,10 @@ function [max_ek]=spline(k)
     grid on; 
 
     subplot(4,1,3); 
-    plot(x,pk_function,'k-',xi,yi,'ro')
+    plot(x,s_function,'k-',xi,yi,'ro')
     xlabel('x'); 
     ylabel('y'); 
-    title('Polinômio pk encontrado'); 
+    title('Polinômio s encontrado'); 
     grid on;
 
     subplot(4,1,4); 
