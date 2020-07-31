@@ -10,7 +10,7 @@ function [max_ek]=spline(k)
     ek = abs(f-s_function);
     max_ek = max(ek);
     
-    %{
+    
     figure(1); 
     subplot(4,1,1); 
     plot(x,f);
@@ -39,7 +39,7 @@ function [max_ek]=spline(k)
     ylabel('y'); 
     title('Erros do polinômio'); 
     grid on;
-    %}
+    
 end
 
 
